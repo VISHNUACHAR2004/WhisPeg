@@ -2,7 +2,8 @@
 backend/pegasus_saved/
 backend/whisper_saved/
 
-
+ven/
+ven
 __pycache__/
 *.pyc
 env
