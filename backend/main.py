@@ -163,4 +163,4 @@ def health():
     return {"status": "WhisPeg backend running!"}
 
 
-#syntax to run: uvicorn backend.main:app --host
+#command 
