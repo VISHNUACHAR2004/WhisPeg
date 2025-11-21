@@ -4,6 +4,9 @@ from pydantic import BaseModel
 import shutil, os
 import uuid
 import moviepy.editor as mp
+
+
+
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 import torch
 
@@ -23,7 +26,7 @@ app.add_middleware(
 # -----------------------------
 # Load Pegasus Model
 # -----------------------------
-PEGASUS_MODEL_DIR = "models/pegasus_model"
+PEGASUS_MODEL_DIR = "V:/projects/WhisPeg/backend/pegasus_saved"
 pegasus_tokenizer = AutoTokenizer.from_pretrained(PEGASUS_MODEL_DIR)
 pegasus_model = AutoModelForSeq2SeqLM.from_pretrained(PEGASUS_MODEL_DIR)
 
@@ -38,7 +41,7 @@ pegasus_pipe = pipeline(
 # -----------------------------
 # Load Whisper Base Model
 # -----------------------------
-WHISPER_DIR = "models/whisper_model"
+WHISPER_DIR = "V:/projects/WhisPeg/backend/whisper_saved"
 
 whisper_pipe = pipeline(
     "automatic-speech-recognition",

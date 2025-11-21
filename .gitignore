@@ -26,3 +26,9 @@ htmlcov
 .mypy_cache
 .pytest_cache
 .coverage
+.pyre/
+.pytype/
+# Jupyter Notebook
+.ipynb_checkpoints
+# VS Code
+
