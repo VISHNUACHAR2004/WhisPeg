@@ -1,0 +1,27 @@
+# Python
+backend/pegasus_saved/
+backend/whisper_saved/
+
+
+__pycache__/
+*.pyc
+env
+venv
+.env
+.idea
+.vscode
+.DS_Store
+node_modules
+dist
+build
+*.log
+*.sqlite3
+*.bak
+*.swp
+*.tmp
+coverage
+htmlcov
+*.egg-info
+.mypy_cache
+.pytest_cache
+.coverage

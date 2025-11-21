@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+python-multipart
+transformers
+torch
+torchaudio
+moviepy
+speechrecognition
+fpdf
+nltk
+python-dotenv
+
+
+#command to install the requirements
+# pip install -r backend/requirements.txt
