@@ -1,7 +1,7 @@
 # Python
 backend/pegasus_saved/
 backend/whisper_saved/
-
+models
 ven/
 ven
 __pycache__/

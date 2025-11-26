@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+python-multipart
+transformers==4.39.3
+torch
+torchaudio
+moviepy
+fpdf
+nltk
+python-dotenv
+pydantic
+whisper-timestamped
+streamlit
+requests
+python-dotenv
+
