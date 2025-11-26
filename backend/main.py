@@ -3,13 +3,10 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import os
 import shutil
-from utils.summarizer import summarize_text
-from utils.transcriber import transcribe_audio
-from utils.chunker import chunk_text
 
 app = FastAPI(title="WhisPeg – Multimodal Summarizer API")
 
-# Allow Streamlit frontend to access FastAPI
+# Allow CORS (Streamlit)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -28,6 +25,9 @@ def health():
 # ---------------------- TEXT SUMMARIZATION ----------------------
 @app.post("/summarize/text")
 async def summarize_text_api(file: UploadFile = File(...)):
+    from utils.summarizer import summarize_text      # ← moved inside
+    from utils.chunker import chunk_text             # ← moved inside
+
     file_path = os.path.join(UPLOAD_DIR, file.filename)
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
@@ -42,6 +42,10 @@ async def summarize_text_api(file: UploadFile = File(...)):
 # ---------------------- AUDIO/VIDEO SUMMARIZATION ----------------------
 @app.post("/summarize/audio")
 async def summarize_audio_api(file: UploadFile = File(...)):
+    from utils.transcriber import transcribe_audio   # ← moved inside
+    from utils.summarizer import summarize_text      # ← moved inside
+    from utils.chunker import chunk_text             # ← moved inside
+
     file_path = os.path.join(UPLOAD_DIR, file.filename)
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
@@ -57,4 +61,4 @@ async def summarize_audio_api(file: UploadFile = File(...)):
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000)
